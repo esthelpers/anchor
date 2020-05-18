@@ -1,9 +1,11 @@
 anchor(){
-  echo "cd $PWD" > ~/.anchor
+  echo "$PWD" > ~/.anchor
 }
 if ! [ -f ~/.anchor ]
 then
-  echo "cd $HOME" > ~/.anchor
+  echo "$HOME" > ~/.anchor
   echo "anchor created"
 fi
-. ~/.anchor
+anchor:get(){
+  cd $(cat ~/.anchor)
+}
